@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
+import { Route, Routes } from "react-router-dom";
+
+import Board from "./Page/Board";
+import BoardPage from "./Page/BoardPage";
+import BoardWriteFrom from "./Page/BoardWirteFrom";
+
+// Routes와 Route를 이용하여 화면 관리
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/**고정할 화면이 있다면 Routes의 바깥에 두거나, Layout사용 */}
+      <Routes>
+        <Route path="/" element={<Board />}></Route>
+        <Route path="/board/:id" element={<BoardPage />}></Route>
+        <Route path="/board/modifyform" element={<BoardWriteFrom />}></Route>
+      </Routes>
     </div>
   );
 }
